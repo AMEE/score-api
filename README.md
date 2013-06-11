@@ -8,47 +8,60 @@ Everything you need to start is listed right here, including sample code and det
 Where to start
 --------------
 
-1. The first thing you'll need are some API credentials (a user name and password) to sign requests with. If you drop an an email titled "API credentials request" to [developers@amee.com](mailto:developers@amee.com). You should usually receive them the same day.
+1. The first thing you'll need are some API credentials to sign requests with. You can get those from the [API page on amee.com](https://www.amee.com/pages/api)
 2. Once you have credentials, see how to make a sample request using your credentials, and see a sample response.
-3. Look over the detailed [API docs](https://github.com/AMEE/score-api/blob/master/sections/resources.md) to see how to make the requests specific to your app.
-5. Join the [API mailing list](http://groups.google.com/group/amee-developer) to talk to others using the APIs and give us feedback.
+3. Join the [Score API group](https://groups.google.com/forum/?fromgroups&hl=en#!forum/amee-score-api) to talk to others using the APIs and give us feedback.
 
-Making a sample response
+Making a sample request
 ------------------------
 
 Once you have credentials, you can make a sample request to the amee Score resource like so:
 
 ```shell
-curl -H "Accept: application/json" -u username:password \ 
-  https://score.amee.com/1.0/companies/123456789
+curl -u key:secret https://data.amee.com/api/companies/000662801
 ```
 
 You should receive a json response looking something like this:
 
 ```json
-{
- "status" : "OK",
- "score" : {
-   "amee_id" : "123456789",
-   "cro" : "UK123456",
-   "name" : "Example Company Ltd",
-   "amee_industry_score" : 50,
-   "amee_profiles_url" : "https://beta.amee.com/companies/123456789-example-company-ltd"
- },
- "version" : "1.0.0"
-}
+{"company": {
+    "amee_company_id": "000662801",
+    "name": "Amee Uk Ltd",
+    "amee_industry_score": 98,
+    "amee_score_status": "updated",
+    "annual_sales_local": 1999099,
+    "city": "LondoN",
+    "country_code": "GB",
+    "currency_code": "GBP",
+    "emissions_scope1_tco2e": null,
+    "emissions_scope2_tco2e": null,
+    "emissions_status": "updated",
+    "emissions_total_tco2e": 984156,
+    "employees_total": null,
+    "uk_sic_2007": 62012,
+    "national_identification_number": "06630234",
+    "postcode": "EC1Y 2BJ",
+    "province_name": "London",
+    "street_address_1": "4th FlooR",
+    "street_address_2": "70-74 City RoaD",
+    "street_address_3": null,
+    "street_address_4": null,
+    "sustainability_report_url": null,
+    "sustainability_report_year": 2013,
+    "total_assets_local": 640291,
+    "waste_hazardous_kg": 123000,
+    "waste_non_hazardous_kg": 312000,
+    "waste_status": "updated",
+    "water_status": "updated",
+    "water_withdrawn_l": 324000
+}}
 ```
 
 
 Authentication
 --------------
 
-All requests are sent over SSL, and use HTTP Basic Authentication with your user credentials. [More detailed documentation is also available ](https://github.com/AMEE/score-api/blob/master/sections/score.md#Authentication)
-
-Just JSON, no XML
------------------
-
-The API only supports JSON, so be sure to use a header requesting the response as JSON, like so: `Accept: application/json`
+All requests are sent over SSL, and use HTTP Basic Authentication with your user credentials. You can get those from the [API page on amee.com](https://www.amee.com/pages/api)
 
 
 API Documentation
@@ -56,19 +69,15 @@ API Documentation
 
 There are currently two resources available on the public Score API:
 
-* [Company](https://github.com/AMEE/score-api/blob/master/sections/company.md) - for returning the information for a given company
-* [Users](https://github.com/AMEE/score-api/blob/master/sections/user.md) - for managing your own user account
+* [Company](https://github.com/AMEE/score-api/blob/rails_api_v2/sections/company.md) - for returning the information for a given company
 
-##### Shared docs for all resources
-
-There is more detailed documentation that applies to making all requests to resources exposed by amee. Find it here in the shared [resources](https://github.com/AMEE/score-api/blob/master/sections/user.md) documentation.
 
 #### APIs under development
 
 Over the coming weeks and months, we'll be exposing further resources to use, and fleshing out existing ones with new methods.  
 
 * Company - fetching full information about companies, and sending updates to the data
-* Search - exposing the search visible on http://beta.amee.com in machine readable form
+* Search - exposing the search visible on http://amee.com in machine readable form
 
 
 Help us make it better
@@ -76,4 +85,4 @@ Help us make it better
 
 Please tell us how we can make the APIs better. If you have a specific feature request or if you found a bug, or the docs aren't clear, please [file an issue](https://github.com/AMEE/score-api/issues). Also, feel free to fork these docs and send a pull request with improvements!
 
-To talk with us and other developers about the API, subscribe to the [amee developer mailing list](http://groups.google.com/group/amee-developer).
+To talk with us and other developers about the API, subscribe to the [amee developer mailing list](https://groups.google.com/forum/?fromgroups&hl=en#!forum/amee-score-api).
