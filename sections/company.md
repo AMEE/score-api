@@ -10,10 +10,10 @@ Get company
 
 ### Query Parameters
 
-`type` - the type of the company ID specified, (CRO|AMEE).  If no type is specified, defaults to AMEE.
+`type` - the type of the company ID specified, (CRO|amee).  If no type is specified, defaults to amee.
 
 * `CRO`  - company registration number
-* `AMEE` - amee id
+* `amee` - amee id
 
 
 Sample Request
